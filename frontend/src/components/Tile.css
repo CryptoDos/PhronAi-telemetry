@@ -21,24 +21,26 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
   text-align: left;
   width: 260px;
   height: 100px;
-  display: inline-block;
-  position: relative;
+  /* display: inline-block;
+  position: relative; */
+  display: block;
 }
 
 .Tile-label {
-  position: absolute;
+  /* position: absolute;
   top: 24px;
   left: 70px;
-  right: 0;
+  right: 0; */
   font-size: 0.4em;
   text-transform: uppercase;
+  color: #9f54ff;
 }
 
 .Tile-content {
-  position: absolute;
+  /* position: absolute;
   bottom: 16px;
   left: 70px;
-  right: 0;
+  right: 0; */
   font-weight: 300;
   font-size: 0.75em;
 }
@@ -50,6 +52,49 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
   font-size: 0.8em;
   padding: 0.1em;
   border-radius: 1.25em;
-  border: 2px solid #e6007a;
-  color: #e6007a;
+  /* border: 2px solid #e6007a;
+  color: #e6007a; */
+  border: 2px solid #b276ff;
+  color: #b276ff;
+}
+
+/* .Tile .custom-icon {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+  position: absolute;
+  left: 7px;
+  top: 15px;
+  padding: 0.1em;
+  border-radius: 1.25em;
+} */
+
+.stat .custom-icon {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+}
+
+.stat {
+  display: flex;
+  align-items: center;
+  /* margin-left: 32px; */
+}
+
+.stat .state--content {
+  margin-left: 16px;
+  display: flex;
+  flex-direction: column;
+}
+
+.stat .state--content .stat--label {
+  font-size: 16px;
+  text-transform: uppercase;
+  color: #9f54ff;
+  margin-bottom: 5px;
+}
+
+.stat .state--content .stat--content {
+  font-weight: 300;
+  font-size: 24px;
 }
