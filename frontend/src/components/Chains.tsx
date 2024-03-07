@@ -88,7 +88,8 @@ export class Chains extends React.Component<ChainsProps> {
         </a>
         <a
           className="Chains-fork-me"
-          href="https://github.com/paritytech/substrate-telemetry"
+          // href="https://github.com/paritytech/substrate-telemetry"
+          href="https://github.com/cryptodos/phronai-telemetry"
           target="_blank"
           title="Fork Me!"
           rel="noreferrer"

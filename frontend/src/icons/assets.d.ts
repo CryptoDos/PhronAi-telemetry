@@ -15,3 +15,4 @@
 // along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 declare module '*.svg';
+declare module '*.png';

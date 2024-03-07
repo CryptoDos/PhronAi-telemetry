@@ -65,7 +65,16 @@ export class Map extends React.Component<MapProps, MapState> {
 
     return (
       <React.Fragment>
-        <div className="Map">
+        <div
+          className="Map"
+          style={{
+            top: `${
+              // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+              // @ts-ignore
+              document.getElementsByClassName('header')[0]?.offsetHeight + 50
+            }px`,
+          }}
+        >
           {nodes.map((node) => {
             const { lat, lon } = node;
 

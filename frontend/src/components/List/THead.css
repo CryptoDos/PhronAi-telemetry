@@ -17,7 +17,8 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 */
 
 .THead {
-  background: #393838;
+  /* background: #393838; */
+  background-color: #210a41;
 }
 
 .THeadCell {
@@ -26,13 +27,17 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
   height: 23px;
 }
 
+.THeadCell:nth-child(even) {
+  background-color: #130329;
+}
+
 .THeadCell-sortable {
   cursor: pointer;
 }
 
 .THeadCell-sorted {
   cursor: pointer;
-  background: #e6007a;
+  background: #9f54ff;
   color: #fff;
 }
 

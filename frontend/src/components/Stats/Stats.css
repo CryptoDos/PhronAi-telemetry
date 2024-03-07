@@ -24,20 +24,21 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 .Stats-category {
   text-align: left;
-  background-color: #fff;
+  background-color: #0b051f;
   margin-bottom: 2.5rem;
   padding: 1rem;
 }
 
 .Stats-category table {
-  color: #000;
+  color: #fff;
   width: 100%;
   table-layout: fixed;
   border-collapse: collapse;
 }
 
 .Stats-category tr:nth-child(even) {
-  background-color: #eee;
+  /* background-color: #eee; */
+  background-color: #9f54ff;
 }
 
 .Stats-percent {

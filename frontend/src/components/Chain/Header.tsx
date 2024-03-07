@@ -20,10 +20,15 @@ import { formatNumber, secondsWithPrecision } from '../../utils';
 import { Tab, ChainDisplay } from './';
 import { Tile, Ago } from '../';
 
-import blockIcon from '../../icons/cube.svg';
-import finalizedIcon from '../../icons/cube-alt.svg';
-import blockTimeIcon from '../../icons/history.svg';
-import lastTimeIcon from '../../icons/watch.svg';
+// import blockIcon from '../../icons/cube.svg';
+// import finalizedIcon from '../../icons/cube-alt.svg';
+// import blockTimeIcon from '../../icons/history.svg';
+// import lastTimeIcon from '../../icons/watch.svg';
+import blockIcon from '../../icons/phronai-block.png';
+import finalizedIcon from '../../icons/phronai-finalized.png';
+import blockTimeIcon from '../../icons/phronai-time.png';
+import lastTimeIcon from '../../icons/phronai-last-time.png';
+
 import listIcon from '../../icons/list-alt-regular.svg';
 import worldIcon from '../../icons/location.svg';
 import settingsIcon from '../../icons/settings.svg';
@@ -56,7 +61,8 @@ export class Header extends React.Component<HeaderProps> {
     const { currentTab, setDisplay } = this.props;
 
     return (
-      <div className="Header">
+      // <div className="Header">
+      <div className="header">
         <Tile icon={blockIcon} title="Best Block">
           #{formatNumber(best)}
         </Tile>
@@ -80,14 +86,14 @@ export class Header extends React.Component<HeaderProps> {
             current={currentTab}
             setDisplay={setDisplay}
           />
-          <Tab
+          {/*<Tab
             icon={worldIcon}
             label="Map"
             display="map"
             tab="map"
             current={currentTab}
             setDisplay={setDisplay}
-          />
+          />*/}
           <Tab
             icon={statsIcon}
             label="Stats"
