@@ -86,14 +86,14 @@ export class Header extends React.Component<HeaderProps> {
             current={currentTab}
             setDisplay={setDisplay}
           />
-          <Tab
+          {/*<Tab
             icon={worldIcon}
             label="Map"
             display="map"
             tab="map"
             current={currentTab}
             setDisplay={setDisplay}
-          />
+          />*/}
           <Tab
             icon={statsIcon}
             label="Stats"

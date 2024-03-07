@@ -19,12 +19,12 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 .Settings {
   text-align: center;
 }
-
+ 
 .Settings-category {
   text-align: left;
-  width: 500px;
+  max-width: 500px;
   margin: 0 auto;
-  padding: 2em 0;
+  padding: 2em;
 }
 
 .Settings-category h2 {
