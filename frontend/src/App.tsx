@@ -80,6 +80,8 @@ export default class App extends React.Component {
       }
     );
 
+    console.log('props', this.appState);
+
     this.pins = new PersistentSet<Types.NodeName>('pinned_names', (pins) => {
       const { nodes } = this.appState;
 
@@ -117,6 +119,8 @@ export default class App extends React.Component {
     this.appState = this.appUpdate({});
 
     const comparator = this.getComparator(this.sortBy.get());
+
+    console.log('comparator', this.appState);
 
     this.appState.nodes.setComparator(comparator);
     this.connection = Connection.create(

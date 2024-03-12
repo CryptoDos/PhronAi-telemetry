@@ -1,19 +1,3 @@
-// Source code for the Substrate Telemetry Server.
-// Copyright (C) 2023 Parity Technologies (UK) Ltd.
-//
-// This program is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// This program is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with this program. If not, see <https://www.gnu.org/licenses/>.
-
 import { VERSION, timestamp, FeedMessage, Types, Maybe, sleep } from './common';
 import { State, Update, Node, ChainData, PINNED_CHAINS } from './state';
 import { PersistentSet } from './persist';
@@ -47,6 +31,9 @@ export class Connection {
     appState: Readonly<State>,
     appUpdate: Update
   ): Promise<Connection> {
+    console.log('AppState', appState);
+    console.log('AppUpdate', appUpdate);
+    console.log('Pins', pins);
     return new Connection(await Connection.socket(), appState, appUpdate, pins);
   }
 
@@ -152,6 +139,7 @@ export class Connection {
   private handleMessages = (messages: FeedMessage.Message[]) => {
     this.messageTimeout?.reset();
     const { nodes, chains, sortBy, selectedColumns } = this.appState;
+    console.log('handle messages', nodes);
     const nodesStateRef = nodes.ref;
 
     let sortByColumn: Maybe<Column> = null;
@@ -160,6 +148,8 @@ export class Connection {
       sortByColumn =
         sortBy < 0 ? selectedColumns[~sortBy] : selectedColumns[sortBy];
     }
+
+    // console.log('MESSAGES', messages);
 
     for (const message of messages) {
       switch (message.action) {
@@ -372,6 +362,25 @@ export class Connection {
       }
     }
 
+    // // Create a Blob containing the content
+    // const blob = new Blob([JSON.stringify(nodes)], { type: 'text/plain' });
+
+    // // Create a URL for the Blob
+    // const url = window.URL.createObjectURL(blob);
+
+    // // Create a temporary <a> element to trigger the download
+    // const a = document.createElement('a');
+    // a.href = url;
+    // a.download = 'example.txt';
+
+    // // Append the <a> element to the body and click it to trigger the download
+    // document.body.appendChild(a);
+    // a.click();
+
+    // // Remove the <a> element and revoke the URL to free up resources
+    // document.body.removeChild(a);
+    // window.URL.revokeObjectURL(url);
+
     if (nodes.hasChangedSince(nodesStateRef)) {
       this.appUpdate({ nodes });
     }
@@ -484,6 +493,8 @@ export class Connection {
       data = str as any as FeedMessage.Data;
     }
 
+    //  console.log('Before serialize data', data);
+
     this.handleMessages(FeedMessage.deserialize(data));
   };
 
@@ -503,6 +514,8 @@ export class Connection {
     }
 
     let topChain: Maybe<ChainData> = null;
+
+    console.log('autoSubscribe chain', chains);
 
     for (const chain of chains.values()) {
       if (PINNED_CHAINS[chain.genesisHash] === 1) {
